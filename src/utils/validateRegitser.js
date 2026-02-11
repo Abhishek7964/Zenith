@@ -1,10 +1,6 @@
 export function validateRegister(formData) {
     const error = {};
 
-    if(!formData) {
-        return alert("Something went wrong!");
-    }
-
     if(formData.name) formData.name = formData.name.trim();
     if(formData.username) formData.username = formData.username.trim();
     if(formData.email) formData.email = formData.email.trim();
