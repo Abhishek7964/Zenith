@@ -9,6 +9,7 @@ import {
 import React, { useState } from "react";
 import { validateRegister } from "../utils/validateRegitser";
 import { Link, useNavigate } from "react-router";
+import SHA256 from "crypto-js/sha256";
 
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
@@ -40,14 +41,23 @@ function Register() {
     if (Object.keys(validationError).length > 0) {
       setError(validationError);
       return;
-    } else {
-      alert("Registration successful!");
-      allUsers.push(formData);
-      localStorage.setItem("allUsers", JSON.stringify(allUsers));
-      setFormData({});
-      setError({});
-      navigate("/login");
     }
+
+    setError({});
+
+    alert("Registration successful!");
+    //Generate hashed password
+    const hashedPassword = SHA256(formData.password).toString();
+    console.log(hashedPassword);
+
+    //Object with hashed password
+    const userDataWithHashedPwd = { ...formData, password: hashedPassword };
+
+    //Push data to the localStorage
+    allUsers.push(userDataWithHashedPwd);
+    localStorage.setItem("allUsers", JSON.stringify(allUsers));
+    setFormData({});
+    navigate("/login");
   };
 
   return (

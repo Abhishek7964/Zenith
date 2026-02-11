@@ -4,6 +4,7 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { useCallback, useEffect, useState } from "react";
 import { validateLogin } from "../utils/validateLogin";
 import { useCaptcha } from "../hooks/useCaptcha";
+import SHA256 from "crypto-js/sha256";
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -44,13 +45,21 @@ function Login() {
     setError({});
 
     const allUsers = JSON.parse(localStorage.getItem("allUsers")) || [];
+
+    //Generate hashed password
+    const hashedPassword = SHA256(formData.password).toString();
+
+    //Object with hashed password
+    const userDataWithHashedPwd = { ...formData, password: hashedPassword };
+    console.log(userDataWithHashedPwd);
+
     let isAuth = allUsers.find((user) => {
       return (
-        user.username === formData.username &&
-        user.password === formData.password
+        user.username === userDataWithHashedPwd.username &&
+        user.password === userDataWithHashedPwd.password
       );
     });
-    isAuth = isAuth && formData.inputCaptcha === generatedCaptcha;
+    isAuth = isAuth && userDataWithHashedPwd.inputCaptcha === generatedCaptcha;
     if (!isAuth) {
       console.log("Invalid username or password!");
       generateCaptcha(6);
