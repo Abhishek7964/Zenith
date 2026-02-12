@@ -1,11 +1,18 @@
 export function validateRegister(formData) {
   const error = {};
 
+  const allUsers = JSON.parse(localStorage.getItem("allUsers")) || [];
+
   if (formData.name) formData.name = formData.name.trim();
   if (formData.username) formData.username = formData.username.trim();
   if (formData.email) formData.email = formData.email.trim();
   if (formData.password) formData.password = formData.password.trim();
   if (formData.contact) formData.contact = formData.contact.trim();
+
+  //Check for duplicate username
+  const existingUsername = allUsers.find((user) => {
+    return user.username === formData.username;
+  });
 
   if (!formData.name) {
     error.name = "Name is required";
@@ -13,6 +20,10 @@ export function validateRegister(formData) {
 
   if (!formData.username) {
     error.username = "Username is required";
+  } else if (formData.username.includes(" ")) {
+    error.username = "Username should not contain spaces";
+  } else if (existingUsername) {
+    error.username = "Username already exists";
   }
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

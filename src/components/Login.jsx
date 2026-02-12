@@ -5,6 +5,10 @@ import { useCallback, useEffect, useState } from "react";
 import { validateLogin } from "../utils/validateLogin";
 import { useCaptcha } from "../hooks/useCaptcha";
 import SHA256 from "crypto-js/sha256";
+import { Link, useNavigate } from "react-router";
+import CachedIcon from "@mui/icons-material/Cached";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../redux/slice/authSlice";
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -15,6 +19,11 @@ function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState({});
   const { generatedCaptcha, generateCaptcha } = useCaptcha(6);
+
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
   useEffect(() => {
     generateCaptcha(6);
@@ -50,16 +59,16 @@ function Login() {
     const hashedPassword = SHA256(formData.password).toString();
 
     //Object with hashed password
-    const userDataWithHashedPwd = { ...formData, password: hashedPassword };
-    console.log(userDataWithHashedPwd);
+    const formDataWithHashedPwd = { ...formData, password: hashedPassword };
+    console.log(formDataWithHashedPwd);
 
     let isAuth = allUsers.find((user) => {
       return (
-        user.username === userDataWithHashedPwd.username &&
-        user.password === userDataWithHashedPwd.password
+        user.username === formDataWithHashedPwd.username &&
+        user.password === formDataWithHashedPwd.password
       );
     });
-    isAuth = isAuth && userDataWithHashedPwd.inputCaptcha === generatedCaptcha;
+    isAuth = isAuth && formDataWithHashedPwd.inputCaptcha === generatedCaptcha;
     if (!isAuth) {
       console.log("Invalid username or password!");
       generateCaptcha(6);
@@ -67,7 +76,11 @@ function Login() {
       return;
     }
     console.log("logged in successfully!");
-    localStorage.setItem("isAuth", JSON.stringify(true));
+
+    dispatch(login(formDataWithHashedPwd.username));
+    navigate("/dashboard");
+
+    // localStorage.setItem("isAuth", JSON.stringify(true));
     setFormData({ username: "", password: "", inputCaptcha: "" });
   };
 
@@ -78,6 +91,9 @@ function Login() {
   return (
     <form noValidate onSubmit={handleLoginSubmit}>
       {" "}
+      <div>
+        Don't have an account? <Link to="/">Register</Link>
+      </div>
       <TextField
         variant="outlined"
         label="Username"
@@ -115,9 +131,9 @@ function Login() {
         }}
       />
       <div>{generatedCaptcha}</div>
-      <Button variant="contained" onClick={handleRefreshClick}>
-        Refresh Captcha
-      </Button>
+      <IconButton onClick={handleRefreshClick}>
+        <CachedIcon />
+      </IconButton>
       <TextField
         variant="outlined"
         label="Enter Captcha"

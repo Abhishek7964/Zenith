@@ -13,6 +13,7 @@ import SHA256 from "crypto-js/sha256";
 
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import { useDispatch, useSelector } from "react-redux";
 
 function Register() {
   const [formData, setFormData] = useState({});
@@ -21,6 +22,9 @@ function Register() {
   const [error, setError] = useState({});
 
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
   const handleRegisterChange = (e) => {
     const { name, value } = e.target;
@@ -51,10 +55,13 @@ function Register() {
     console.log(hashedPassword);
 
     //Object with hashed password
-    const userDataWithHashedPwd = { ...formData, password: hashedPassword };
+    const formDataWithHashedPwd = {
+      username: formData.username,
+      password: hashedPassword,
+    };
 
     //Push data to the localStorage
-    allUsers.push(userDataWithHashedPwd);
+    allUsers.push(formDataWithHashedPwd);
     localStorage.setItem("allUsers", JSON.stringify(allUsers));
     setFormData({});
     navigate("/login");
