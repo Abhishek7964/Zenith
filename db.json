@@ -1,0 +1,22 @@
+{
+  "tasks": [
+    {
+      "id": "1",
+      "createdBy": "palabhab",
+      "taskName": "Auth Setup",
+      "taskStage": 0,
+      "taskPriority": "high",
+      "taskDeadline": "2026-02-10",
+      "createdAt": "2026-02-05T10:30:00.000Z"
+    },
+    {
+      "id": "2",
+      "createdBy": "palswesw",
+      "taskName": "Work on new feature",
+      "taskStage": 0,
+      "taskPriority": "medium",
+      "taskDeadline": "2026-02-10",
+      "createdAt": "2026-02-05T10:30:00.000Z"
+    }
+  ]
+}

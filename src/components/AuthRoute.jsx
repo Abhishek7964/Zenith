@@ -9,7 +9,7 @@ function AuthRoute({ children }) {
     return <Navigate to="/dashboard" replace />;
   }
 
-  return <Navigate to="/login" replace />;
+  return children;
 }
 
 export default AuthRoute;

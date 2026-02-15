@@ -92,7 +92,7 @@ function Login() {
     <form noValidate onSubmit={handleLoginSubmit}>
       {" "}
       <div>
-        Don't have an account? <Link to="/">Register</Link>
+        Don't have an account? <Link to="/register">Register</Link>
       </div>
       <TextField
         variant="outlined"

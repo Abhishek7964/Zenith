@@ -1,20 +1,21 @@
-import React from "react";
 import Register from "./components/Register";
-import { BrowserRouter as Router, Routes, Route } from "react-router";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router";
 import Login from "./components/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Dashboard from "./components/Dashboard";
 import Board from "./components/Board";
 import TaskForm from "./components/TaskForm";
 import AuthRoute from "./components/AuthRoute";
+import HomePage from "./components/HomePage";
 
 function App() {
   return (
     <div>
       <Router>
         <Routes>
+          <Route path="/" element={<HomePage />}></Route>
           <Route
-            path="/"
+            path="/register"
             element={
               <AuthRoute>
                 <Register />
