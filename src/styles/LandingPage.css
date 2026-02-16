@@ -1,0 +1,1109 @@
+/* Import Google Fonts - Inter for modern look */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+.landing-page {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #e8eaed 0%, #f0f1f3 100%);
+  position: relative;
+}
+
+/* Dot pattern background - exact match */
+.landing-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(circle, #c5c8cc 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Container */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 60px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Navbar */
+.navbar {
+  padding: 28px 0;
+  background: transparent;
+  position: relative;
+  z-index: 1000;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-dots {
+  display: grid;
+  grid-template-columns: repeat(2, 8px);
+  grid-template-rows: repeat(2, 8px);
+  gap: 4px;
+}
+
+.logo-dots .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #1a1a1a;
+}
+
+.logo-text {
+  font-size: 19px;
+  font-weight: 600;
+  color: #1a1a1a;
+  letter-spacing: -0.02em;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+  margin: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #1f2937;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  letter-spacing: -0.01em;
+}
+
+.nav-links li a:hover {
+  color: #3b82f6;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.btn-sign-in {
+  padding: 9px 18px;
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1f2937;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.btn-sign-in:hover {
+  color: #3b82f6;
+}
+
+.btn-demo {
+  padding: 9px 18px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 7px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1f2937;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.btn-demo:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+}
+
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.mobile-menu-toggle span {
+  width: 22px;
+  height: 2px;
+  background: #1f2937;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+/* Hero Section */
+.hero {
+  padding: 20px 0 40px;
+  position: relative;
+  z-index: 1;
+  min-height: calc(100vh - 100px);
+  max-height: calc(100vh - 100px);
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+  min-height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+}
+
+/* Center Content */
+.hero-center {
+  text-align: center;
+  position: relative;
+  z-index: 100;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.app-icon-card {
+  display: inline-block;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 101;
+}
+
+.app-icon {
+  display: grid;
+  grid-template-columns: repeat(2, 18px);
+  grid-template-rows: repeat(2, 18px);
+  gap: 7px;
+  padding: 18px;
+}
+
+.icon-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+}
+
+.icon-dot.blue {
+  background: #3b82f6;
+}
+
+.icon-dot.black {
+  background: #1f2937;
+}
+
+.hero-title {
+  font-size: 72px;
+  font-weight: 500;
+  line-height: 1.1;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  letter-spacing: -0.025em;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  z-index: 101;
+}
+
+.title-light {
+  color: #c5c9ce;
+  font-weight: 400;
+}
+
+.hero-subtitle {
+  font-size: 17px;
+  color: #1a1a1a;
+  margin-bottom: 40px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  position: relative;
+  z-index: 101;
+}
+
+.btn-primary {
+  padding: 16px 32px;
+  background: #3b82f6;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.01em;
+  position: relative;
+  z-index: 101;
+}
+
+.btn-primary:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.35);
+}
+
+/* Floating Cards - STATIC, NO ANIMATIONS - SPREAD OUT MORE */
+.floating-card {
+  position: absolute;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.2s ease;
+  z-index: 50;
+}
+
+.floating-card:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.10), 0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Sticky Note - MOVED FURTHER LEFT */
+.sticky-note {
+  top: 60px;
+  left: 60px;
+  width: 220px;
+  background: rgba(254, 243, 199, 0.85);
+  backdrop-filter: blur(8px);
+  padding: 24px;
+  transform: rotate(-6deg);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  z-index: 50;
+}
+
+.pin {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 22px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.note-text {
+  font-size: 13px;
+  line-height: 1.65;
+  color: #374151;
+  font-style: italic;
+  font-family: 'Kalam', 'Brush Script MT', cursive;
+  font-weight: 400;
+}
+
+/* Checkmark Card - MOVED FURTHER LEFT AND DOWN */
+.checkmark-card {
+  top: 350px;
+  left: 90px;
+  width: 75px;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(8deg);
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+}
+
+.checkmark {
+  font-size: 34px;
+  color: #3b82f6;
+  font-weight: 700;
+}
+
+/* Reminders Card - MOVED FURTHER RIGHT */
+.reminders-card {
+  top: 60px;
+  right: 60px;
+  width: 280px;
+  padding: 20px;
+  transform: rotate(4deg);
+  z-index: 50;
+}
+
+.reminders-header {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+
+.reminder-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.reminder-icon {
+  font-size: 38px;
+  line-height: 1;
+}
+
+.reminder-content {
+  flex: 1;
+}
+
+.reminder-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+
+.reminder-time {
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+
+.reminder-time-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 11px;
+  background: #dbeafe;
+  border-radius: 6px;
+  font-size: 11px;
+  color: #1d4ed8;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.clock-icon {
+  font-size: 13px;
+}
+
+/* Tasks Card - MOVED FURTHER LEFT AND DOWN */
+.tasks-card {
+  bottom: 60px;
+  left: 60px;
+  width: 320px;
+  padding: 20px;
+  transform: rotate(-3deg);
+  z-index: 50;
+}
+
+.tasks-header {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.task-item {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.task-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.task-checkbox {
+  width: 19px;
+  height: 19px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.task-checkbox.orange {
+  background: #f97316;
+}
+
+.task-checkbox.green {
+  background: #10b981;
+}
+
+.task-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.task-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+
+.task-date {
+  font-size: 11px;
+  color: #9ca3af;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.task-progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 5px;
+  background: #f3f4f6;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #3b82f6;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.progress-fill.green {
+  background: #10b981;
+}
+
+.progress-text {
+  font-size: 11px;
+  color: #6b7280;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.task-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Integrations Card - MOVED FURTHER RIGHT AND DOWN */
+.integrations-card {
+  bottom: 60px;
+  right: 60px;
+  width: 260px;
+  padding: 20px;
+  transform: rotate(3deg);
+  z-index: 50;
+}
+
+.integrations-header {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+
+.integration-icons {
+  display: flex;
+  gap: 11px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.integration-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 23px;
+  font-weight: 700;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.integration-icon.gmail {
+  background: linear-gradient(135deg, #ea4335 0%, #fbbc04 50%, #34a853 75%, #4285f4 100%);
+  color: #ffffff;
+}
+
+.gmail-m {
+  font-family: 'Inter', 'Google Sans', sans-serif;
+  font-weight: 700;
+  font-size: 27px;
+}
+
+.integration-icon.slack {
+  background: linear-gradient(135deg, #4a154b 0%, #36c5f0 100%);
+  color: #ffffff;
+}
+
+.slack-hash {
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-weight: 700;
+  font-size: 29px;
+}
+
+.integration-icon.calendar {
+  background: linear-gradient(135deg, #4285f4 0%, #5a9cf8 100%);
+  color: #ffffff;
+  flex-direction: column;
+  padding: 7px;
+  position: relative;
+  gap: 3px;
+}
+
+.cal-top {
+  width: 100%;
+  height: 7px;
+  background: #ffffff;
+  border-radius: 2px 2px 0 0;
+}
+
+.cal-date {
+  font-size: 17px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* Responsive Design */
+
+/* Large Tablet (1024px - 1280px) */
+@media (max-width: 1280px) {
+  .container {
+    padding: 0 40px;
+  }
+
+  .hero-title {
+    font-size: 60px;
+  }
+
+  .hero-center {
+    padding: 0 30px;
+  }
+
+  .sticky-note {
+    left: 30px;
+    width: 180px;
+    padding: 18px;
+  }
+
+  .note-text {
+    font-size: 11px;
+  }
+
+  .checkmark-card {
+    left: 50px;
+    width: 65px;
+    height: 65px;
+  }
+
+  .checkmark {
+    font-size: 28px;
+  }
+
+  .reminders-card {
+    right: 30px;
+    width: 240px;
+  }
+
+  .tasks-card {
+    left: 30px;
+    width: 280px;
+  }
+
+  .integrations-card {
+    right: 30px;
+    width: 220px;
+  }
+}
+
+/* Tablet (768px - 1024px) */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 30px;
+  }
+
+  .hero {
+    height: calc(100vh - 70px);
+  }
+
+  .hero-title {
+    font-size: 52px;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+  }
+
+  .hero-center {
+    padding: 0 20px;
+  }
+
+  .sticky-note {
+    left: 20px;
+    top: 30px;
+    width: 160px;
+    padding: 16px;
+  }
+
+  .note-text {
+    font-size: 10px;
+  }
+
+  .pin {
+    font-size: 16px;
+  }
+
+  .checkmark-card {
+    left: 30px;
+    bottom: 120px;
+    width: 60px;
+    height: 60px;
+  }
+
+  .checkmark {
+    font-size: 26px;
+  }
+
+  .reminders-card {
+    right: 20px;
+    top: 30px;
+    width: 220px;
+    padding: 16px;
+  }
+
+  .reminder-icon {
+    font-size: 32px;
+  }
+
+  .tasks-card {
+    left: 20px;
+    bottom: 30px;
+    width: 260px;
+    padding: 16px;
+  }
+
+  .integrations-card {
+    right: 20px;
+    bottom: 30px;
+    width: 200px;
+    padding: 16px;
+  }
+
+  .integration-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .gmail-m {
+    font-size: 22px;
+  }
+
+  .slack-hash {
+    font-size: 24px;
+  }
+
+  .cal-date {
+    font-size: 14px;
+  }
+}
+
+/* Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .navbar {
+    padding: 18px 0;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    gap: 16px;
+    border-radius: 8px;
+    margin-top: 12px;
+    z-index: 1001;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-buttons {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .hero {
+    padding: 20px 0 30px;
+    height: calc(100vh - 80px);
+  }
+
+  .hero-content {
+    padding: 0;
+  }
+
+  .hero-center {
+    padding: 0 15px;
+    max-width: 100%;
+  }
+
+  .app-icon-card {
+    margin-bottom: 28px;
+  }
+
+  .app-icon {
+    padding: 14px;
+    grid-template-columns: repeat(2, 14px);
+    grid-template-rows: repeat(2, 14px);
+    gap: 5px;
+  }
+
+  .icon-dot {
+    width: 14px;
+    height: 14px;
+  }
+
+  .hero-title {
+    font-size: 38px;
+    margin-bottom: 14px;
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
+    margin-bottom: 28px;
+  }
+
+  .btn-primary {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+
+  /* Reposition cards for mobile - FIT IN VIEWPORT */
+  .sticky-note {
+    top: 15px;
+    left: 8px;
+    width: 135px;
+    padding: 12px;
+    transform: rotate(-4deg);
+  }
+
+  .note-text {
+    font-size: 9px;
+    line-height: 1.4;
+  }
+
+  .pin {
+    font-size: 14px;
+    top: -8px;
+  }
+
+  .checkmark-card {
+    bottom: 90px;
+    left: 12px;
+    width: 50px;
+    height: 50px;
+    transform: rotate(6deg);
+  }
+
+  .checkmark {
+    font-size: 20px;
+  }
+
+  .reminders-card {
+    top: 15px;
+    right: 8px;
+    width: 155px;
+    padding: 12px;
+    transform: rotate(3deg);
+  }
+
+  .reminders-header,
+  .tasks-header,
+  .integrations-header {
+    font-size: 10px;
+    margin-bottom: 8px;
+  }
+
+  .reminder-icon {
+    font-size: 24px;
+  }
+
+  .reminder-title {
+    font-size: 10px;
+  }
+
+  .reminder-time {
+    font-size: 9px;
+    margin-bottom: 6px;
+  }
+
+  .reminder-time-badge {
+    padding: 3px 6px;
+    font-size: 8px;
+  }
+
+  .clock-icon {
+    font-size: 9px;
+  }
+
+  .tasks-card {
+    bottom: 15px;
+    left: 8px;
+    width: 180px;
+    padding: 12px;
+    transform: rotate(-2deg);
+  }
+
+  .task-item {
+    gap: 7px;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+  }
+
+  .task-checkbox {
+    width: 14px;
+    height: 14px;
+  }
+
+  .task-name {
+    font-size: 10px;
+  }
+
+  .task-date {
+    font-size: 8px;
+    margin-bottom: 6px;
+  }
+
+  .progress-bar {
+    height: 4px;
+  }
+
+  .progress-text {
+    font-size: 8px;
+  }
+
+  .task-avatar {
+    width: 20px;
+    height: 20px;
+  }
+
+  .integrations-card {
+    bottom: 15px;
+    right: 8px;
+    width: 135px;
+    padding: 12px;
+    transform: rotate(2deg);
+  }
+
+  .integration-icons {
+    gap: 6px;
+  }
+
+  .integration-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+  }
+
+  .gmail-m {
+    font-size: 16px;
+  }
+
+  .slack-hash {
+    font-size: 18px;
+  }
+
+  .cal-top {
+    height: 4px;
+  }
+
+  .cal-date {
+    font-size: 10px;
+  }
+}
+
+/* Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 14px;
+  }
+
+  .hero-title {
+    font-size: 32px;
+  }
+
+  .hero-subtitle {
+    font-size: 13px;
+    margin-bottom: 24px;
+  }
+
+  .btn-primary {
+    padding: 11px 20px;
+    font-size: 13px;
+  }
+
+  .app-icon-card {
+    margin-bottom: 24px;
+  }
+
+  .app-icon {
+    padding: 12px;
+    grid-template-columns: repeat(2, 12px);
+    grid-template-rows: repeat(2, 12px);
+    gap: 4px;
+  }
+
+  .icon-dot {
+    width: 12px;
+    height: 12px;
+  }
+
+  .sticky-note {
+    width: 120px;
+    padding: 10px;
+    top: 12px;
+    left: 6px;
+  }
+
+  .note-text {
+    font-size: 8px;
+  }
+
+  .pin {
+    font-size: 12px;
+  }
+
+  .checkmark-card {
+    width: 45px;
+    height: 45px;
+    bottom: 80px;
+    left: 10px;
+  }
+
+  .checkmark {
+    font-size: 18px;
+  }
+
+  .reminders-card {
+    width: 135px;
+    padding: 10px;
+    top: 12px;
+    right: 6px;
+  }
+
+  .reminder-icon {
+    font-size: 20px;
+  }
+
+  .reminder-title {
+    font-size: 9px;
+  }
+
+  .reminder-time {
+    font-size: 8px;
+  }
+
+  .reminder-time-badge {
+    padding: 2px 5px;
+    font-size: 7px;
+  }
+
+  .tasks-card {
+    width: 160px;
+    padding: 10px;
+    bottom: 12px;
+    left: 6px;
+  }
+
+  .task-name {
+    font-size: 9px;
+  }
+
+  .task-date,
+  .progress-text {
+    font-size: 7px;
+  }
+
+  .task-avatar {
+    width: 18px;
+    height: 18px;
+  }
+
+  .integrations-card {
+    width: 120px;
+    padding: 10px;
+    bottom: 12px;
+    right: 6px;
+  }
+
+  .integration-icons {
+    gap: 5px;
+  }
+
+  .integration-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .gmail-m {
+    font-size: 14px;
+  }
+
+  .slack-hash {
+    font-size: 16px;
+  }
+
+  .cal-date {
+    font-size: 9px;
+  }
+
+  .reminders-header,
+  .tasks-header,
+  .integrations-header {
+    font-size: 9px;
+  }
+}

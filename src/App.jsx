@@ -6,14 +6,14 @@ import Dashboard from "./components/Dashboard";
 import Board from "./components/Board";
 import TaskForm from "./components/TaskForm";
 import AuthRoute from "./components/AuthRoute";
-import HomePage from "./components/HomePage";
+import LandingPage from "./components/LandingPage";
 
 function App() {
   return (
     <div>
       <Router>
         <Routes>
-          <Route path="/" element={<HomePage />}></Route>
+          <Route path="/" element={<LandingPage />}></Route>
           <Route
             path="/register"
             element={
