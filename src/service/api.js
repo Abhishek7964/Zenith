@@ -1,25 +1,34 @@
+import { use } from "react";
+
 const URL = "http://localhost:3001";
 
 //Get all tasks
 export async function allTasksByUser(user) {
-  const tasks = await fetch(`${URL}/tasks?createdBy=${user}`);
-  const data = await tasks.json();
-  console.log(data);
+  const data = await fetch(`${URL}/tasks?createdBy=${user}`);
+  const tasks = await data.json();
+  return tasks;
 }
 
 //Add new task
-export async function addNewTask(newTask) {
+export async function addNewTask(newTask, loggedInUser) {
   try {
+    const { taskName, ...rest } = newTask;
     const tasks = await fetch(`${URL}/tasks`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ ...newTask, createdAt: new Date().toISOString() }),
+      body: JSON.stringify({
+        createdBy: loggedInUser,
+        taskName: taskName,
+        taskStage: 0,
+        ...rest,
+        createdAt: new Date().toISOString(),
+      }),
     });
     return tasks;
   } catch (error) {
-    throw new Error(error);
+    console.error("Something went wrong while creating a new task", error);
   }
 }
 
@@ -35,7 +44,7 @@ export async function updateTask(taskId, update) {
     });
     return tasks;
   } catch (error) {
-    throw new Error(error);
+    console.error("Something went wrong while updating task", error);
   }
 }
 
@@ -47,6 +56,6 @@ export async function deleteTask(taskId) {
     });
     return true;
   } catch (error) {
-    throw new Error(error);
+    console.error("Something went wrong while deleting task", error);
   }
 }

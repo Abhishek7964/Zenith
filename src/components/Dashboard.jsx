@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/slice/authSlice";
 import { useNavigate } from "react-router";
@@ -11,6 +11,10 @@ import {
 } from "../service/api";
 
 function Dashboard() {
+  const [totalTasks, setTotalTasks] = useState(0);
+  const [completedTasks, setCompletedTasks] = useState(0);
+  const [pendingTasks, setPendingTasks] = useState(0);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -29,33 +33,37 @@ function Dashboard() {
     navigate("/create-task");
   };
 
-  // allTasksByUser(localStorage.getItem("currentUser"));
-  // addNewTask({
-  //   id: "3",
-  //   createdBy: "palabhab",
-  //   taskName: "Sonarqube setup",
-  //   taskStage: 0,
-  //   taskPriority: "low",
-  //   taskDeadline: "2026-02-15",
-  // });
-
   useEffect(() => {
-    // updateTask(3, {
-    //   id: "3",
-    //   createdBy: "palabhab",
-    //   taskName: "Sonarqube setup 1",
-    //   taskStage: 0,
-    //   taskPriority: "low",
-    //   taskDeadline: "2026-02-10",
-    //   createdAt: "2026-02-15T10:30:00.000Z",
-    // });
-    deleteTask(3);
-  }, []);
+    async function fetchTasks() {
+      try {
+        const tasks = await allTasksByUser(loggedInUser);
+        setTotalTasks(tasks.length);
+        setPendingTasks(
+          tasks.filter((task) => {
+            return task.taskStage !== 3;
+          }).length,
+        );
+        setCompletedTasks(
+          tasks.filter((task) => {
+            return task.taskStage === 3;
+          }).length,
+        );
+      } catch (error) {
+        console.error("Something went wrong while fetching tasks", error);
+      }
+    }
+    if (loggedInUser) {
+      fetchTasks();
+    }
+  }, [loggedInUser]);
 
   return (
     <div>
       <div>Welcome, {loggedInUser}</div>
       <div>Dashboard Page!</div>
+      <div>Total Tasks: {totalTasks}</div>
+      <div>Completed Tasks: {completedTasks}</div>
+      <div>Pending Tasks: {pendingTasks}</div>
       <Button variant="contained" onClick={handleLogoutClick}>
         Logout
       </Button>
