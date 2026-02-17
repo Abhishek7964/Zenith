@@ -1,0 +1,284 @@
+/* ─────────────────────────────────────────
+   REGISTER PAGE
+   Matches the LandingPage design system:
+   - Same outer grey (#d4d5d8) background
+   - White card with rounded corners
+   - Dot pattern backdrop
+   - #3b82f6 blue accent
+   - Inter font
+───────────────────────────────────────── */
+
+/* ── Page wrapper — same as landing-page ── */
+.register-page {
+  width: 100%;
+  height: 100vh;
+  background: #d4d5d8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Dot pattern — same as hero::before ── */
+.register-bg {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, #b8bcc2 1px, transparent 1px);
+  background-size: 22px 22px;
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Card ── */
+.register-card {
+  position: relative;
+  z-index: 1;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px 44px;
+  width: 100%;
+  max-width: 520px;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.1),
+    0 4px 16px rgba(0, 0, 0, 0.06);
+  animation: cardIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ── Logo — mirrors navbar logo ── */
+.register-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.register-logo .logo-dots {
+  display: grid;
+  grid-template-columns: repeat(2, 7px);
+  grid-template-rows: repeat(2, 7px);
+  gap: 3px;
+}
+
+.register-logo .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #1a1a1a;
+}
+
+.register-logo .dot.blue {
+  background: #3b82f6;
+}
+
+.register-logo .logo-text {
+  font-size: 17px;
+  font-weight: 600;
+  color: #1a1a1a;
+  letter-spacing: -0.02em;
+  font-family: "Inter", sans-serif;
+}
+
+/* ── Header ── */
+.register-header {
+  margin-bottom: 28px;
+}
+
+.register-title {
+  font-size: 26px;
+  font-weight: 600;
+  color: #1a1a1a;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin-bottom: 6px;
+  font-family: "Inter", sans-serif;
+}
+
+.register-subtitle {
+  font-size: 14px;
+  color: #6b7280;
+  font-family: "Inter", sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.register-link {
+  color: #3b82f6;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.register-link:hover {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+/* ── Form layout ── */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Side-by-side row for Name + Username */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.form-field {
+  width: 100%;
+}
+
+/* ── MUI TextField overrides ──
+   Keep MUI's functionality but align visually
+   with the landing page card aesthetic.       */
+.register-input .MuiOutlinedInput-root {
+  border-radius: 10px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  background: #fafafa;
+  transition: background 0.2s ease;
+}
+
+.register-input .MuiOutlinedInput-root:hover {
+  background: #f5f6f7;
+}
+
+.register-input .MuiOutlinedInput-root.Mui-focused {
+  background: #ffffff;
+}
+
+.register-input .MuiOutlinedInput-notchedOutline {
+  border-color: #e5e7eb;
+  transition: border-color 0.2s ease;
+}
+
+.register-input .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #d1d5db;
+}
+
+.register-input
+  .MuiOutlinedInput-root.Mui-focused
+  .MuiOutlinedInput-notchedOutline {
+  border-color: #3b82f6;
+  border-width: 1.5px;
+}
+
+.register-input
+  .MuiOutlinedInput-root.Mui-error
+  .MuiOutlinedInput-notchedOutline {
+  border-color: #ef4444;
+}
+
+.register-input .MuiInputLabel-root {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: #9ca3af;
+  letter-spacing: -0.01em;
+}
+
+.register-input .MuiInputLabel-root.Mui-focused {
+  color: #3b82f6;
+}
+
+.register-input .MuiInputLabel-root.Mui-error {
+  color: #ef4444;
+}
+
+.register-input .MuiFormHelperText-root {
+  font-family: "Inter", sans-serif;
+  font-size: 11.5px;
+  margin-top: 4px;
+  letter-spacing: -0.01em;
+}
+
+.register-input input[type="number"]::-webkit-outer-spin-button,
+.register-input input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* ── Terms checkbox ── */
+.form-terms {
+  margin-top: -4px;
+  margin-bottom: 4px;
+}
+
+.terms-label {
+  font-family: "Inter", sans-serif;
+  font-size: 13.5px;
+  color: #374151;
+  letter-spacing: -0.01em;
+}
+
+/* ── Submit button ──
+   Mirrors .btn-primary from LandingPage     */
+.register-btn.MuiButton-root {
+  background: #3b82f6 !important;
+  border-radius: 10px !important;
+  padding: 13px 0 !important;
+  font-family: "Inter", sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.01em !important;
+  text-transform: none !important;
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.35) !important;
+  transition: all 0.2s ease !important;
+  margin-top: 4px !important;
+}
+
+.register-btn.MuiButton-root:hover {
+  background: #2563eb !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 18px rgba(59, 130, 246, 0.4) !important;
+}
+
+.register-btn.MuiButton-root.Mui-disabled {
+  background: #e5e7eb !important;
+  color: #9ca3af !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
+@media (max-width: 600px) {
+  .register-page {
+    align-items: flex-start;
+    overflow-y: auto;
+    height: auto;
+    min-height: 100vh;
+    padding: 24px 0 40px;
+  }
+
+  .register-card {
+    border-radius: 16px;
+    padding: 28px 24px;
+    margin: 0 12px;
+  }
+
+  /* Stack Name + Username on mobile */
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .register-title {
+    font-size: 22px;
+  }
+}
