@@ -26,6 +26,16 @@ body {
   overflow: hidden;
 }
 
+/* ── Home nav link ── */
+.nav-link-home {
+  color: #374151 !important;
+  font-weight: 600 !important;
+}
+
+.nav-link-home:hover {
+  color: #2563eb !important;
+}
+
 /* ─────────────────────────────────────────
    PAGE WRAPPER
 ───────────────────────────────────────── */

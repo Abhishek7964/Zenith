@@ -30,6 +30,19 @@ const LandingPage = () => {
               <span className="logo-text">Zenith</span>
             </div>
             <ul className={`nav-links ${isMobileMenuOpen ? "active" : ""}`}>
+              {/* ── HOME link — navigates to dashboard ── */}
+              <li>
+                <a
+                  href="#home"
+                  className="nav-link-home"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigate("/dashboard");
+                  }}
+                >
+                  Home
+                </a>
+              </li>
               <li>
                 <a href="#features">Features</a>
               </li>
@@ -78,9 +91,6 @@ const LandingPage = () => {
 
           {/* Center Content */}
           <div className="hero-center">
-            {/* App icon card:
-                desktop → position:absolute, floats above title
-                mobile  → position:relative, sits in flex flow  */}
             <div className="floating-card app-icon-card">
               <div className="app-icon">
                 <span className="icon-dot blue"></span>

@@ -1,10 +1,7 @@
 /* ─────────────────────────────────────────
    TASK FORM — Split Panel Design
-   Dark left accent panel + white right form
-   Shares: Inter, #3b82f6, #1a1a1a, dot bg
 ───────────────────────────────────────── */
 
-/* ── Page wrapper ── */
 .taskform-page {
   width: 100%;
   height: 100vh;
@@ -15,7 +12,6 @@
   position: relative;
 }
 
-/* ── Dot pattern ── */
 .taskform-bg {
   position: fixed;
   inset: 0;
@@ -26,9 +22,6 @@
   z-index: 0;
 }
 
-/* ─────────────────────────────────────────
-   TOPBAR
-───────────────────────────────────────── */
 .taskform-nav {
   position: relative;
   z-index: 100;
@@ -45,11 +38,7 @@
   justify-content: space-between;
 }
 
-.taskform-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
+.taskform-logo { display: flex; align-items: center; gap: 10px; }
 
 .taskform-logo .logo-dots {
   display: grid;
@@ -58,16 +47,8 @@
   gap: 3px;
 }
 
-.taskform-logo .dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #1a1a1a;
-}
-
-.taskform-logo .dot.blue {
-  background: #3b82f6;
-}
+.taskform-logo .dot { width: 7px; height: 7px; border-radius: 50%; background: #1a1a1a; }
+.taskform-logo .dot.blue { background: #3b82f6; }
 
 .taskform-logo .logo-text {
   font-size: 16px;
@@ -77,28 +58,18 @@
   font-family: "Inter", sans-serif;
 }
 
-/* Breadcrumb */
 .taskform-breadcrumb {
   display: flex;
   align-items: center;
   gap: 6px;
   font-size: 13px;
   color: #9ca3af;
-  letter-spacing: -0.01em;
   font-family: "Inter", sans-serif;
 }
 
-.taskform-breadcrumb .active {
-  color: #374151;
-  font-weight: 500;
-}
+.taskform-breadcrumb .active { color: #374151; font-weight: 500; }
+.taskform-breadcrumb .sep { font-size: 11px; color: #d1d5db; }
 
-.taskform-breadcrumb .sep {
-  font-size: 11px;
-  color: #d1d5db;
-}
-
-/* Back button */
 .back-btn {
   display: inline-flex;
   align-items: center;
@@ -112,19 +83,11 @@
   color: #6b7280;
   cursor: pointer;
   font-family: "Inter", sans-serif;
-  letter-spacing: -0.01em;
   transition: all 0.2s ease;
 }
 
-.back-btn:hover {
-  background: #f3f4f6;
-  border-color: #d1d5db;
-  color: #374151;
-}
+.back-btn:hover { background: #f3f4f6; border-color: #d1d5db; color: #374151; }
 
-/* ─────────────────────────────────────────
-   MAIN — fills remaining height, side by side
-───────────────────────────────────────── */
 .taskform-main {
   position: relative;
   z-index: 1;
@@ -133,14 +96,9 @@
   overflow: hidden;
   margin: 12px;
   border-radius: 20px;
-  box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.1),
-    0 4px 16px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.1), 0 4px 16px rgba(0,0,0,0.06);
 }
 
-/* ─────────────────────────────────────────
-   LEFT ACCENT PANEL
-───────────────────────────────────────── */
 .taskform-left {
   width: 290px;
   flex-shrink: 0;
@@ -153,50 +111,33 @@
   position: relative;
 }
 
-/* Glow blobs */
 .taskform-left::before {
   content: "";
   position: absolute;
-  width: 280px;
-  height: 280px;
-  background: radial-gradient(
-    circle,
-    rgba(59, 130, 246, 0.22) 0%,
-    transparent 70%
-  );
-  top: -60px;
-  right: -80px;
+  width: 280px; height: 280px;
+  background: radial-gradient(circle, rgba(59,130,246,0.22) 0%, transparent 70%);
+  top: -60px; right: -80px;
   pointer-events: none;
 }
 
 .taskform-left::after {
   content: "";
   position: absolute;
-  width: 220px;
-  height: 220px;
-  background: radial-gradient(
-    circle,
-    rgba(59, 130, 246, 0.12) 0%,
-    transparent 70%
-  );
-  bottom: 20px;
-  left: -50px;
+  width: 220px; height: 220px;
+  background: radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%);
+  bottom: 20px; left: -50px;
   pointer-events: none;
 }
 
-.left-top {
-  position: relative;
-  z-index: 1;
-}
+.left-top { position: relative; z-index: 1; }
 
-/* Pill tag */
 .left-tag {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   padding: 5px 12px;
-  background: rgba(59, 130, 246, 0.12);
-  border: 1px solid rgba(59, 130, 246, 0.28);
+  background: rgba(59,130,246,0.12);
+  border: 1px solid rgba(59,130,246,0.28);
   border-radius: 100px;
   font-size: 11px;
   font-weight: 500;
@@ -208,13 +149,7 @@
   font-family: "Inter", sans-serif;
 }
 
-.left-tag-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #3b82f6;
-  flex-shrink: 0;
-}
+.left-tag-dot { width: 5px; height: 5px; border-radius: 50%; background: #3b82f6; flex-shrink: 0; }
 
 .left-heading {
   font-size: 25px;
@@ -226,56 +161,35 @@
   font-family: "Inter", sans-serif;
 }
 
-.left-heading span {
-  color: #93c5fd;
-}
+.left-heading span { color: #93c5fd; }
 
 .left-desc {
   font-size: 13px;
-  color: #4b5563;
+  color: #9ca3af;
   line-height: 1.7;
   letter-spacing: -0.01em;
   margin-bottom: 36px;
   font-family: "Inter", sans-serif;
 }
 
-/* Step list */
-.left-steps {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  z-index: 1;
-}
+.left-steps { display: flex; flex-direction: column; position: relative; z-index: 1; }
 
-.left-step {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  padding-bottom: 22px;
-  position: relative;
-}
+.left-step { display: flex; align-items: flex-start; gap: 14px; padding-bottom: 22px; position: relative; }
+.left-step:last-child { padding-bottom: 0; }
 
-.left-step:last-child {
-  padding-bottom: 0;
-}
-
-/* Connector line */
 .left-step:not(:last-child)::after {
   content: "";
   position: absolute;
-  left: 13px;
-  top: 30px;
-  bottom: 0;
+  left: 13px; top: 30px; bottom: 0;
   width: 1px;
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(255,255,255,0.07);
 }
 
 .step-num {
-  width: 28px;
-  height: 28px;
+  width: 28px; height: 28px;
   border-radius: 50%;
-  background: rgba(59, 130, 246, 0.1);
-  border: 1px solid rgba(59, 130, 246, 0.28);
+  background: rgba(59,130,246,0.1);
+  border: 1px solid rgba(59,130,246,0.28);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -290,49 +204,45 @@
   background: #3b82f6;
   border-color: #3b82f6;
   color: #ffffff;
-  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.18);
+  box-shadow: 0 0 0 4px rgba(59,130,246,0.18);
 }
 
-.step-info {
-  padding-top: 3px;
-}
+.step-info { padding-top: 3px; }
 
 .step-label {
   font-size: 13px;
   font-weight: 500;
-  color: #374151;
+  color: #6b7280;
   letter-spacing: -0.01em;
   margin-bottom: 2px;
   font-family: "Inter", sans-serif;
 }
 
-.left-step.active .step-label {
-  color: #e5e7eb;
-}
+.left-step.active .step-label { color: #e5e7eb; }
 
 .step-sub {
   font-size: 11.5px;
-  color: #374151;
+  color: #4b5563;
   letter-spacing: -0.01em;
   font-family: "Inter", sans-serif;
 }
 
-/* Bottom meta */
+.left-step.active .step-sub { color: #6b7280; }
+
 .left-meta {
   position: relative;
   z-index: 1;
   padding-top: 22px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid rgba(255,255,255,0.06);
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
 .left-meta-icon {
-  width: 34px;
-  height: 34px;
+  width: 34px; height: 34px;
   border-radius: 9px;
-  background: rgba(59, 130, 246, 0.1);
+  background: rgba(59,130,246,0.1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -342,20 +252,14 @@
 
 .left-meta-text {
   font-size: 11.5px;
-  color: #4b5563;
+  color: #9ca3af;
   line-height: 1.55;
   letter-spacing: -0.01em;
   font-family: "Inter", sans-serif;
 }
 
-.left-meta-text strong {
-  color: #6b7280;
-  font-weight: 500;
-}
+.left-meta-text strong { color: #d1d5db; font-weight: 500; }
 
-/* ─────────────────────────────────────────
-   RIGHT FORM PANEL
-───────────────────────────────────────── */
 .taskform-right {
   flex: 1;
   background: #ffffff;
@@ -365,15 +269,9 @@
   padding: 44px 52px;
 }
 
-.taskform-right::-webkit-scrollbar {
-  width: 4px;
-}
-.taskform-right::-webkit-scrollbar-thumb {
-  background: #e5e7eb;
-  border-radius: 4px;
-}
+.taskform-right::-webkit-scrollbar { width: 4px; }
+.taskform-right::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 4px; }
 
-/* Form header */
 .form-header {
   margin-bottom: 36px;
   padding-bottom: 28px;
@@ -383,9 +281,7 @@
   justify-content: space-between;
 }
 
-.form-header-left {
-  flex: 1;
-}
+.form-header-left { flex: 1; }
 
 .form-step-indicator {
   font-size: 11.5px;
@@ -416,8 +312,7 @@
 }
 
 .form-header-icon {
-  width: 52px;
-  height: 52px;
+  width: 52px; height: 52px;
   border-radius: 14px;
   background: #eff6ff;
   border: 1px solid #dbeafe;
@@ -429,9 +324,6 @@
   margin-left: 20px;
 }
 
-/* ─────────────────────────────────────────
-   FORM
-───────────────────────────────────────── */
 .taskform-form {
   display: flex;
   flex-direction: column;
@@ -439,7 +331,6 @@
   flex: 1;
 }
 
-/* Section labels above field groups */
 .section-label {
   font-size: 11px;
   font-weight: 600;
@@ -450,91 +341,150 @@
   font-family: "Inter", sans-serif;
 }
 
-.taskform-field {
-  width: 100%;
-}
+.taskform-field { width: 100%; }
 
-/* Side-by-side row */
 .taskform-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
-  margin-bottom: 0;
+  align-items: start;
 }
 
 /* ─────────────────────────────────────────
-   MUI OVERRIDES
+   NATIVE DATE INPUT
 ───────────────────────────────────────── */
-.taskform-input .MuiOutlinedInput-root {
-  border-radius: 12px;
+.date-field-wrapper {
+  position: relative;
+  width: 100%;
+  height: 56px;
+}
+
+/* Floating label — sits inside the box like MUI */
+.date-field-label {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
   font-family: "Inter", sans-serif;
   font-size: 14px;
+  font-weight: 400;
+  color: #b0b7c3;
+  letter-spacing: -0.01em;
+  pointer-events: none;
+  transition: top 0.12s ease, font-size 0.12s ease, color 0.12s ease,
+              background 0.12s ease, padding 0.12s ease;
+  background: transparent;
+  padding: 0;
+  line-height: 1;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+/* Float label up when date selected or focused */
+.date-field-wrapper.has-value .date-field-label,
+.date-field-wrapper.is-focused .date-field-label {
+  top: 0px;
+  font-size: 11.5px;
   background: #fafafa;
-  transition: background 0.2s ease;
+  padding: 0 4px;
+  left: 10px;
+  color: #b0b7c3;
 }
 
-.taskform-input .MuiOutlinedInput-root:hover {
-  background: #f5f6f8;
-}
-
-.taskform-input .MuiOutlinedInput-root.Mui-focused {
+/* Focused: label turns blue */
+.date-field-wrapper.is-focused .date-field-label {
+  color: #3b82f6;
   background: #ffffff;
 }
 
-.taskform-input .MuiOutlinedInput-notchedOutline {
-  border-color: #e9eaec;
-  transition: border-color 0.2s ease;
-}
-
-.taskform-input .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
-  border-color: #d1d5db;
-}
-
-.taskform-input
-  .MuiOutlinedInput-root.Mui-focused
-  .MuiOutlinedInput-notchedOutline {
-  border-color: #3b82f6;
-  border-width: 1.5px;
-}
-
-.taskform-input
-  .MuiOutlinedInput-root.Mui-error
-  .MuiOutlinedInput-notchedOutline {
-  border-color: #ef4444;
-}
-
-.taskform-input .MuiInputLabel-root {
-  font-family: "Inter", sans-serif;
-  font-size: 14px;
-  color: #b0b7c3;
-  letter-spacing: -0.01em;
-}
-
-.taskform-input .MuiInputLabel-root.Mui-focused {
-  color: #3b82f6;
-}
-
-.taskform-input .MuiInputLabel-root.Mui-error {
+/* Error: label turns red */
+.date-field-wrapper.date-field-error .date-field-label {
   color: #ef4444;
 }
 
-.taskform-input .MuiFormHelperText-root {
+/* Asterisk inherits label color — never independently red */
+.date-required {
+  color: inherit;
+  margin-left: 1px;
+}
+
+/* The actual input */
+.date-field-input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0 14px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: transparent; /* hide text while empty so placeholder label shows */
+  letter-spacing: -0.01em;
+  background: #fafafa;
+  border: 1px solid #e9eaec;
+  border-radius: 12px;
+  outline: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  -webkit-appearance: none;
+  appearance: none;
+  /* line-height trick: perfectly centers text in the 56px box when no value */
+  line-height: 56px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* Once a value exists — switch to padding-based offset so text sits
+   in the lower half beneath the floated label */
+.date-field-wrapper.has-value .date-field-input {
+  color: #1a1a1a;
+  line-height: normal;
+  padding-top: 18px;
+  padding-bottom: 0;
+}
+
+.date-field-input:hover {
+  background: #f5f6f8;
+  border-color: #d1d5db;
+}
+
+.date-field-input:focus {
+  background: #ffffff;
+  border-color: #3b82f6;
+  border-width: 1.5px;
+  color: #1a1a1a;
+  line-height: normal;
+  padding-top: 18px;
+  padding-bottom: 0;
+}
+
+/* Error border */
+.date-field-wrapper.date-field-error .date-field-input {
+  border-color: #ef4444;
+}
+
+/* Helper / error text below */
+.date-field-helper {
+  position: absolute;
+  bottom: -20px;
+  left: 14px;
   font-family: "Inter", sans-serif;
   font-size: 11.5px;
-  margin-top: 4px;
+  color: #ef4444;
   letter-spacing: -0.01em;
+  display: block;
+  white-space: nowrap;
 }
 
-.taskform-input .MuiSelect-select {
-  font-family: "Inter", sans-serif;
-  font-size: 14px;
+/* Calendar picker icon */
+.date-field-input::-webkit-calendar-picker-indicator {
+  opacity: 0.35;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
 }
 
-.taskform-input .MuiInputBase-root {
-  border-radius: 12px;
-  font-family: "Inter", sans-serif;
-  font-size: 14px;
-  background: #fafafa;
+.date-field-input::-webkit-calendar-picker-indicator:hover {
+  opacity: 0.8;
 }
 
 /* ─────────────────────────────────────────
@@ -556,52 +506,21 @@
 }
 
 @keyframes badgeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
 }
 
-.priority-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
+.priority-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
 
-.priority-low {
-  background: #f0fdf4;
-  color: #16a34a;
-  border: 1px solid #bbf7d0;
-}
-.priority-low .priority-dot {
-  background: #22c55e;
-}
-
-.priority-medium {
-  background: #fefce8;
-  color: #ca8a04;
-  border: 1px solid #fde68a;
-}
-.priority-medium .priority-dot {
-  background: #eab308;
-}
-
-.priority-high {
-  background: #fff1f2;
-  color: #dc2626;
-  border: 1px solid #fecaca;
-}
-.priority-high .priority-dot {
-  background: #ef4444;
-}
+.priority-low    { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
+.priority-low    .priority-dot { background: #22c55e; }
+.priority-medium { background: #fefce8; color: #ca8a04; border: 1px solid #fde68a; }
+.priority-medium .priority-dot { background: #eab308; }
+.priority-high   { background: #fff1f2; color: #dc2626; border: 1px solid #fecaca; }
+.priority-high   .priority-dot { background: #ef4444; }
 
 /* ─────────────────────────────────────────
-   FOOTER — sticks to bottom of right panel
+   FOOTER
 ───────────────────────────────────────── */
 .taskform-footer {
   margin-top: auto;
@@ -620,11 +539,7 @@
   font-family: "Inter", sans-serif;
 }
 
-.taskform-actions {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
+.taskform-actions { display: flex; gap: 10px; align-items: center; }
 
 .taskform-btn-cancel {
   padding: 11px 22px;
@@ -640,11 +555,7 @@
   transition: all 0.2s ease;
 }
 
-.taskform-btn-cancel:hover {
-  background: #f9fafb;
-  border-color: #d1d5db;
-  color: #374151;
-}
+.taskform-btn-cancel:hover { background: #f9fafb; border-color: #d1d5db; color: #374151; }
 
 .taskform-btn-submit {
   padding: 11px 24px;
@@ -657,7 +568,7 @@
   cursor: pointer;
   font-family: "Inter", sans-serif;
   letter-spacing: -0.01em;
-  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 4px 14px rgba(59,130,246,0.3);
   transition: all 0.2s ease;
   display: inline-flex;
   align-items: center;
@@ -667,107 +578,38 @@
 .taskform-btn-submit:hover {
   background: #2563eb;
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 6px 20px rgba(59,130,246,0.4);
 }
 
 /* ─────────────────────────────────────────
-   RESPONSIVE — ≤ 1024px
+   RESPONSIVE
 ───────────────────────────────────────── */
 @media (max-width: 1024px) {
-  .taskform-left {
-    width: 250px;
-    padding: 36px 28px;
-  }
-  .left-heading {
-    font-size: 22px;
-  }
-  .taskform-right {
-    padding: 36px 40px;
-  }
-  .form-title {
-    font-size: 24px;
-  }
+  .taskform-left  { width: 250px; padding: 36px 28px; }
+  .left-heading   { font-size: 22px; }
+  .taskform-right { padding: 36px 40px; }
+  .form-title     { font-size: 24px; }
 }
 
-/* ─────────────────────────────────────────
-   RESPONSIVE — ≤ 768px (Mobile)
-   Left panel hidden, right panel full width
-───────────────────────────────────────── */
 @media (max-width: 768px) {
-  .taskform-main {
-    margin: 8px;
-    border-radius: 16px;
-    flex-direction: column;
-  }
-
-  .taskform-left {
-    display: none;
-  }
-
-  .taskform-right {
-    padding: 32px 28px;
-  }
-
-  .form-header {
-    margin-bottom: 24px;
-    padding-bottom: 20px;
-  }
-
-  .form-title {
-    font-size: 22px;
-  }
-
-  .form-header-icon {
-    display: none;
-  }
-
-  .taskform-row {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .taskform-breadcrumb {
-    display: none;
-  }
-
-  .taskform-footer {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .footer-hint {
-    display: none;
-  }
-
-  .taskform-actions {
-    flex-direction: column-reverse;
-  }
-
+  .taskform-main       { margin: 8px; border-radius: 16px; flex-direction: column; }
+  .taskform-left       { display: none; }
+  .taskform-right      { padding: 32px 28px; }
+  .form-header         { margin-bottom: 24px; padding-bottom: 20px; }
+  .form-title          { font-size: 22px; }
+  .form-header-icon    { display: none; }
+  .taskform-row        { grid-template-columns: 1fr; gap: 20px; }
+  .taskform-breadcrumb { display: none; }
+  .taskform-footer     { flex-direction: column; align-items: stretch; }
+  .footer-hint         { display: none; }
+  .taskform-actions    { flex-direction: column-reverse; }
   .taskform-btn-cancel,
-  .taskform-btn-submit {
-    width: 100%;
-    justify-content: center;
-    padding: 13px;
-  }
+  .taskform-btn-submit { width: 100%; justify-content: center; padding: 13px; }
 }
 
-/* ─────────────────────────────────────────
-   RESPONSIVE — ≤ 480px
-───────────────────────────────────────── */
 @media (max-width: 480px) {
-  .taskform-right {
-    padding: 24px 20px;
-  }
-
-  .taskform-nav-inner {
-    padding: 0 20px;
-  }
-
-  .form-title {
-    font-size: 20px;
-  }
-
-  .taskform-form {
-    gap: 22px;
-  }
+  .taskform-right     { padding: 24px 20px; }
+  .taskform-nav-inner { padding: 0 20px; }
+  .form-title         { font-size: 20px; }
+  .taskform-form      { gap: 22px; }
 }
