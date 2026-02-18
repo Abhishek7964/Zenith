@@ -192,7 +192,9 @@ function Dashboard() {
           </div>
 
           <div className="dashboard-breadcrumb">
-            <span>Home</span>
+            <span onClick={() => navigate("/")} className="home-text">
+              Home
+            </span>
             <span className="sep">›</span>
             <span className="active">Dashboard</span>
           </div>
@@ -279,7 +281,7 @@ function Dashboard() {
             <div>
               <div className="dash-page-label">Overview</div>
               <h1 className="dash-title">
-                Good to see you, <span>{loggedInUser}</span> 👋
+                Good to see you, <span>{loggedInUser}</span>
               </h1>
               <p className="dash-subtitle">
                 Here's what's happening with your tasks today.

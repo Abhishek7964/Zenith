@@ -2,6 +2,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
 
 import authReducer from "./slice/authSlice";
+import taskReducer from "./slice/taskSlice";
 import persistReducer from "redux-persist/es/persistReducer";
 import {
   FLUSH,
@@ -24,6 +25,7 @@ const persistConfig = {
 //Combiner reducers
 const rootReducer = combineReducers({
   auth: authReducer,
+  tasks: taskReducer,
 });
 
 //Create persisted reducer

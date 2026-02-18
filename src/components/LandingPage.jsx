@@ -40,7 +40,7 @@ const LandingPage = () => {
                     navigate("/dashboard");
                   }}
                 >
-                  Home
+                  Dashboard
                 </a>
               </li>
               <li>

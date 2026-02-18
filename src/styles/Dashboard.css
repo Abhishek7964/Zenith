@@ -100,6 +100,18 @@
   color: #d1d5db;
 }
 
+.home-text {
+  cursor: pointer;
+  color: #9ca3af;
+  transition: color 0.18s ease;
+}
+
+.home-text:hover {
+  color: #3b82f6;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* Nav right */
 .dashboard-nav-right {
   display: flex;

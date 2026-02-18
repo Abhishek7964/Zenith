@@ -1,5 +1,3 @@
-import { use } from "react";
-
 const URL = "http://localhost:3001";
 
 //Get all tasks
