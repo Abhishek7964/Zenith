@@ -40,7 +40,8 @@ export async function updateTask(taskId, update) {
       },
       body: JSON.stringify({ ...update }),
     });
-    return tasks;
+    const updatedTask = await tasks.json();
+    return updatedTask;
   } catch (error) {
     console.error("Something went wrong while updating task", error);
   }

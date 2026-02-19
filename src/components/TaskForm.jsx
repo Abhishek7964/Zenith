@@ -210,9 +210,9 @@ function TaskForm() {
             <span className="logo-text">Zenith</span>
           </div>
           <div className="taskform-breadcrumb">
-            <span>Board</span>
+            <span onClick={() => navigate("/")}>Home</span>
             <span className="sep">›</span>
-            <span>My Tasks</span>
+            <span onClick={() => navigate("/dashboard")}>Dashboard</span>
             <span className="sep">›</span>
             <span className="active">New Task</span>
           </div>

@@ -1,15 +1,6 @@
 {
   "tasks": [
     {
-      "id": "1",
-      "createdBy": "palabhab",
-      "taskName": "Auth Setup",
-      "taskStage": 3,
-      "taskPriority": "high",
-      "taskDeadline": "2026-02-10",
-      "createdAt": "2026-02-05T10:30:00.000Z"
-    },
-    {
       "id": "2",
       "createdBy": "palswesw",
       "taskName": "Work on new feature",
@@ -19,76 +10,13 @@
       "createdAt": "2026-02-05T10:30:00.000Z"
     },
     {
-      "id": "3",
-      "createdBy": "palabhab",
-      "taskName": "Sonarqube setup 1",
-      "taskStage": 0,
-      "taskPriority": "high",
-      "taskDeadline": "2026-02-10",
-      "createdAt": "2026-02-05T10:30:00.000Z"
-    },
-    {
-      "id": "4",
-      "createdBy": "palabhab",
-      "taskName": "Sonarqube setup 2",
-      "taskStage": 2,
-      "taskPriority": "high",
-      "taskDeadline": "2026-02-10",
-      "createdAt": "2026-02-05T10:30:00.000Z"
-    },
-    {
-      "id": "5",
-      "createdBy": "palabhab",
-      "taskName": "Sonarqube setup 3",
-      "taskStage": 1,
-      "taskPriority": "high",
-      "taskDeadline": "2026-02-10",
-      "createdAt": "2026-02-05T10:30:00.000Z"
-    },
-    {
-      "id": "6",
-      "createdBy": "palabhab",
-      "taskName": "Sonarqube setup 4",
+      "id": "a955",
+      "createdBy": "aaquib",
+      "taskName": "task creation",
       "taskStage": 3,
       "taskPriority": "high",
-      "taskDeadline": "2026-02-10",
-      "createdAt": "2026-02-05T10:30:00.000Z"
-    },
-    {
-      "id": "4401",
-      "taskName": "github setup",
-      "taskPriority": "med",
-      "taskDeadline": "15-02-2026",
-      "createdAt": "2026-02-16T13:45:46.014Z",
-      "createdBy": "palabhab",
-      "taskStage": 0
-    },
-    {
-      "id": "3649",
-      "createdBy": "palabhab",
-      "taskName": "Hello",
-      "taskStage": 0,
-      "taskPriority": "low",
-      "taskDeadline": "28-02-2026",
-      "createdAt": "2026-02-16T14:08:15.336Z"
-    },
-    {
-      "id": "e8d6",
-      "createdBy": "palabhab",
-      "taskName": "kanban project",
-      "taskStage": 0,
-      "taskPriority": "low",
-      "taskDeadline": "18-02-2026",
-      "createdAt": "2026-02-17T15:00:19.147Z"
-    },
-    {
-      "id": "a4d5",
-      "createdBy": "palabhab",
-      "taskName": "hello",
-      "taskStage": 0,
-      "taskPriority": "high",
-      "taskDeadline": "25-02-2026",
-      "createdAt": "2026-02-17T19:12:40.100Z"
+      "taskDeadline": "21-02-2026",
+      "createdAt": "2026-02-19T13:07:20.991Z"
     }
   ]
 }

@@ -7,13 +7,14 @@ import Board from "./components/Board";
 import TaskForm from "./components/TaskForm";
 import AuthRoute from "./components/AuthRoute";
 import LandingPage from "./components/LandingPage";
+import NotFound from "./components/NotFound";
 
 function App() {
   return (
     <div>
       <Router>
         <Routes>
-          <Route path="/" element={<LandingPage />}></Route>
+          <Route path="/" element={<LandingPage />} />
           <Route
             path="/register"
             element={
@@ -21,7 +22,7 @@ function App() {
                 <Register />
               </AuthRoute>
             }
-          ></Route>
+          />
           <Route
             path="/login"
             element={
@@ -29,7 +30,7 @@ function App() {
                 <Login />
               </AuthRoute>
             }
-          ></Route>
+          />
           <Route
             path="/dashboard"
             element={
@@ -37,7 +38,7 @@ function App() {
                 <Dashboard />
               </ProtectedRoute>
             }
-          ></Route>
+          />
           <Route
             path="/board"
             element={
@@ -45,7 +46,7 @@ function App() {
                 <Board />
               </ProtectedRoute>
             }
-          ></Route>
+          />
           <Route
             path="/create-task"
             element={
@@ -53,7 +54,8 @@ function App() {
                 <TaskForm />
               </ProtectedRoute>
             }
-          ></Route>
+          />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
     </div>
