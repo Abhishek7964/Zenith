@@ -15,6 +15,7 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { useDispatch, useSelector } from "react-redux";
 import "../styles/Register.css";
+import { login } from "../redux/slice/authSlice";
 
 function Register() {
   const [formData, setFormData] = useState({});
@@ -55,8 +56,9 @@ function Register() {
     };
     allUsers.push(formDataWithHashedPwd);
     localStorage.setItem("allUsers", JSON.stringify(allUsers));
+    dispatch(login(formDataWithHashedPwd.username));
     setFormData({});
-    navigate("/login");
+    navigate("/dashboard");
   };
 
   return (

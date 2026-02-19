@@ -42,12 +42,10 @@ body {
 .landing-page {
   width: 100%;
   min-height: 100vh;
-  background: #d4d5d8; /* outer darker grey — visible as border around the card */
+  background: #d4d5d8;
   position: relative;
   overflow: visible;
 }
-
-/* No dot pattern on the outer wrapper anymore */
 
 /* ─────────────────────────────────────────
    CONTAINER
@@ -129,6 +127,9 @@ body {
   color: #3b82f6;
 }
 
+/* ─────────────────────────────────────────
+   NAV BUTTONS — guest (login + register)
+───────────────────────────────────────── */
 .nav-buttons {
   display: flex;
   gap: 8px;
@@ -173,11 +174,85 @@ body {
   box-shadow: 0 6px 18px rgba(59, 130, 246, 0.4);
 }
 
-/* .btn-demo:hover {
-  background: #f9fafb;
-  border-color: #d1d5db;
-} */
+/* ─────────────────────────────────────────
+   NAV PROFILE — logged-in state
+   Mirrors Dashboard's user-pill + logout-btn
+───────────────────────────────────────── */
+.nav-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
 
+/* Pill: avatar + username — matches .user-pill in Dashboard */
+.user-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f1f5ff;
+  border: 1px solid #dbeafe;
+  border-radius: 999px;
+  padding: 4px 12px 4px 4px;
+}
+
+.user-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #3b82f6;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: -0.01em;
+  flex-shrink: 0;
+}
+
+.user-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1e40af;
+  letter-spacing: -0.01em;
+  max-width: 130px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Logout button — matches .logout-btn in Dashboard */
+.btn-logout {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 13px;
+  background: transparent;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #6b7280;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  letter-spacing: -0.01em;
+  transition: all 0.2s ease;
+}
+
+.btn-logout:hover {
+  border-color: #f87171;
+  color: #ef4444;
+  background: #fff5f5;
+}
+
+.btn-logout svg {
+  flex-shrink: 0;
+}
+
+/* ─────────────────────────────────────────
+   MOBILE MENU TOGGLE
+───────────────────────────────────────── */
 .mobile-menu-toggle {
   display: none;
   flex-direction: column;
@@ -203,16 +278,15 @@ body {
 .hero {
   position: relative;
   z-index: 1;
-  height: calc(100vh - 68px - 24px); /* 24px = 12px margin top + bottom */
+  height: calc(100vh - 68px - 24px);
   min-height: 0;
   max-height: none;
-  margin: 12px; /* gap between outer page bg and the card */
-  border-radius: 20px; /* rounded card edges */
-  background: #ffffff; /* white card background */
-  overflow: hidden; /* clip dot pattern to rounded corners */
+  margin: 12px;
+  border-radius: 20px;
+  background: #ffffff;
+  overflow: hidden;
 }
 
-/* Dot grid pattern lives on .hero now */
 .hero::before {
   content: "";
   position: absolute;
@@ -224,7 +298,6 @@ body {
   z-index: 0;
 }
 
-/* hero-inner is the positioning parent for all absolute cards */
 .hero-inner {
   position: relative;
   width: 100%;
@@ -235,10 +308,7 @@ body {
 }
 
 /* ─────────────────────────────────────────
-   HERO CENTER — desktop
-   Perfectly centered with transform trick.
-   Wide enough that "Think, plan, and track"
-   never wraps on any desktop viewport.
+   HERO CENTER
 ───────────────────────────────────────── */
 .hero-center {
   position: absolute;
@@ -253,13 +323,6 @@ body {
   align-items: center;
 }
 
-/* ─────────────────────────────────────────
-   APP ICON CARD
-   Desktop: position:absolute so it hovers
-   above the title without pushing it down.
-   The negative `top` lifts it above the
-   hero-center's own top edge.
-───────────────────────────────────────── */
 .app-icon-card {
   position: absolute !important;
   top: -108px;
@@ -299,11 +362,6 @@ body {
   background: #1f2937;
 }
 
-/* ─────────────────────────────────────────
-   HERO TITLE
-   white-space:nowrap keeps line 1 intact.
-   title-light forces line 2 via display:block.
-───────────────────────────────────────── */
 .hero-title {
   font-size: 68px;
   font-weight: 500;
@@ -312,11 +370,11 @@ body {
   margin-bottom: 16px;
   letter-spacing: -0.03em;
   font-family: "Inter", sans-serif;
-  white-space: nowrap; /* line 1 never wraps */
+  white-space: nowrap;
 }
 
 .title-light {
-  display: block; /* forces "all in one place" to its own line */
+  display: block;
   color: #c2c5ca;
   font-weight: 400;
   white-space: nowrap;
@@ -699,6 +757,9 @@ body {
     width: 218px;
     right: 2%;
   }
+  .user-name {
+    max-width: 110px;
+  }
 }
 
 /* ─────────────────────────────────────────
@@ -770,15 +831,15 @@ body {
     width: 46px;
     height: 46px;
   }
+
+  /* Profile on tablet: hide username text inside pill to save space */
+  .user-name {
+    display: none;
+  }
 }
 
 /* ─────────────────────────────────────────
    RESPONSIVE ≤ 768px  — MOBILE
-
-   Strategy: switch entirely to a vertical
-   stacked layout. All floating cards become
-   position:relative and flow naturally.
-   hero-inner becomes a flex column.
 ───────────────────────────────────────── */
 @media (max-width: 768px) {
   .container {
@@ -809,6 +870,19 @@ body {
   .nav-buttons {
     display: none;
   }
+
+  /* Profile on mobile: keep pill (avatar only) + logout, hide username */
+  .nav-profile {
+    gap: 8px;
+  }
+  .user-name {
+    display: none;
+  }
+  .btn-logout {
+    padding: 6px 11px;
+    font-size: 12px;
+  }
+
   .mobile-menu-toggle {
     display: flex;
   }
@@ -822,9 +896,8 @@ body {
     border-radius: 16px;
   }
 
-  /* hero-inner: vertical flex column, normal document flow */
   .hero-inner {
-    position: relative; /* keep so nav dropdown anchors correctly */
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -840,13 +913,12 @@ body {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   }
 
-  /* Hide sticky note & checkmark — they're decorative only */
+  /* Hide sticky note & checkmark — decorative only */
   .sticky-note,
   .checkmark-card {
     display: none;
   }
 
-  /* Center block — normal flow, full width */
   .hero-center {
     position: relative;
     top: auto;
@@ -861,7 +933,6 @@ body {
     order: 1;
   }
 
-  /* App icon — back in flex flow, not absolute */
   .app-icon-card {
     position: relative !important;
     top: auto !important;
@@ -875,7 +946,7 @@ body {
 
   .hero-title {
     font-size: 36px;
-    white-space: normal; /* allow wrapping on small screens */
+    white-space: normal;
     line-height: 1.12;
     margin-bottom: 12px;
   }
@@ -895,7 +966,6 @@ body {
     font-size: 15px;
   }
 
-  /* Reminders card — below center, full width */
   .reminders-card {
     position: relative !important;
     top: auto !important;
@@ -907,7 +977,6 @@ body {
     order: 2;
   }
 
-  /* Two-column row: tasks (left) + integrations (right) */
   .tasks-card {
     position: relative !important;
     bottom: auto !important;
@@ -930,7 +999,6 @@ body {
     order: 4;
   }
 
-  /* Typography tweaks for mobile cards */
   .reminders-header,
   .tasks-header,
   .integrations-header {
@@ -1016,5 +1084,11 @@ body {
 
   .reminder-icon {
     font-size: 24px;
+  }
+
+  /* On very small screens, hide logout text, keep it icon-only feel */
+  .btn-logout {
+    padding: 6px 10px;
+    font-size: 11px;
   }
 }

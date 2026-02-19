@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import "../styles/LandingPage.css";
 import { useNavigate } from "react-router";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../redux/slice/authSlice";
 
 const LandingPage = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const loggedInUser = useSelector((state) => state.auth.currentUser);
 
   const handleLoginClick = () => {
     navigate("/login");
@@ -12,6 +17,11 @@ const LandingPage = () => {
 
   const handleRegisterClick = () => {
     navigate("/register");
+  };
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/login");
   };
 
   return (
@@ -30,7 +40,6 @@ const LandingPage = () => {
               <span className="logo-text">Zenith</span>
             </div>
             <ul className={`nav-links ${isMobileMenuOpen ? "active" : ""}`}>
-              {/* ── HOME link — navigates to dashboard ── */}
               <li>
                 <a
                   href="#home"
@@ -56,14 +65,47 @@ const LandingPage = () => {
                 <a href="#pricing">Pricing</a>
               </li>
             </ul>
-            <div className="nav-buttons">
-              <button className="btn-sign-in" onClick={handleLoginClick}>
-                Log in
-              </button>
-              <button className="btn-demo" onClick={handleRegisterClick}>
-                Register
-              </button>
-            </div>
+
+            {/* ── Auth Section ── */}
+            {loggedInUser ? (
+              /* Logged-in: user pill + logout — mirrors Dashboard nav */
+              <div className="nav-profile">
+                <div className="user-pill">
+                  <div className="user-avatar">
+                    {loggedInUser ? loggedInUser.charAt(0).toUpperCase() : "U"}
+                  </div>
+                  <span className="user-name">{loggedInUser}</span>
+                </div>
+                <button className="btn-logout" onClick={handleLogout}>
+                  <svg
+                    width="15"
+                    height="15"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                    <polyline points="16 17 21 12 16 7" />
+                    <line x1="21" y1="12" x2="9" y2="12" />
+                  </svg>
+                  <span>Logout</span>
+                </button>
+              </div>
+            ) : (
+              /* Not logged in: login + register */
+              <div className="nav-buttons">
+                <button className="btn-sign-in" onClick={handleLoginClick}>
+                  Log in
+                </button>
+                <button className="btn-demo" onClick={handleRegisterClick}>
+                  Register
+                </button>
+              </div>
+            )}
+
             <button
               className="mobile-menu-toggle"
               aria-label="Toggle menu"
