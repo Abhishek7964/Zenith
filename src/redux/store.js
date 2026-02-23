@@ -3,6 +3,7 @@ import storage from "redux-persist/lib/storage";
 
 import authReducer from "./slice/authSlice";
 import taskReducer from "./slice/taskSlice";
+import noteReducer from "./slice/noteSlice";
 import persistReducer from "redux-persist/es/persistReducer";
 import {
   FLUSH,
@@ -18,7 +19,7 @@ import persistStore from "redux-persist/es/persistStore";
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["auth"],
+  whitelist: ["auth", "notes"],
   version: 1,
 };
 
@@ -26,6 +27,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   auth: authReducer,
   tasks: taskReducer,
+  notes: noteReducer,
 });
 
 //Create persisted reducer
