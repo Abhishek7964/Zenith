@@ -38,6 +38,24 @@ const IconBoard = () => (
   </svg>
 );
 
+/* FIX: dedicated Focus icon */
+const IconFocus = () => (
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <circle cx="12" cy="12" r="3" />
+    <path d="M3 12h1m16 0h1M12 3v1m0 16v1" />
+    <path d="M5.6 5.6l.7.7m11.4 11.4 .7.7M18.4 5.6l-.7.7M6.3 17.7l-.7.7" />
+  </svg>
+);
+
 const IconPlus = () => (
   <svg
     width="16"
@@ -54,7 +72,7 @@ const IconPlus = () => (
 );
 
 /**
- * activePage: "dashboard" | "board"
+ * activePage: "dashboard" | "board" | "focus"
  *
  * Dashboard footer props:
  *   showProgress: true
@@ -88,13 +106,16 @@ function Sidebar({
 
   const initials = username ? username.charAt(0).toUpperCase() : "U";
   const userLabel =
-    activePage === "dashboard" ? "Welcome back" : "Logged in as";
+    activePage === "dashboard"
+      ? "Welcome back"
+      : activePage === "focus"
+        ? "Focus session"
+        : "Logged in as";
 
   return (
     <aside className="sidebar">
-      {/* ── Top section ── */}
+      {/* ── Top ── */}
       <div className="sidebar-top">
-        {/* User block */}
         <div className="sidebar-user-block">
           <div className="sidebar-avatar">{initials}</div>
           <div className="sidebar-user-info">
@@ -105,9 +126,7 @@ function Sidebar({
 
         <div className="sidebar-divider" />
 
-        <div className="sidebar-section-label">
-          {activePage === "dashboard" ? "Quick Actions" : "Navigation"}
-        </div>
+        <div className="sidebar-section-label">Navigation</div>
 
         <nav className="sidebar-nav">
           {/* Dashboard */}
@@ -124,11 +143,11 @@ function Sidebar({
             </div>
             <div className="sidebar-nav-text">
               <span className="sidebar-nav-title">Dashboard</span>
-              <span className="sidebar-nav-sub">Overview & stats</span>
+              <span className="sidebar-nav-sub">Overview &amp; stats</span>
             </div>
           </button>
 
-          {/* My Board */}
+          {/* Board */}
           <button
             className={`sidebar-nav-item${activePage === "board" ? " active" : ""}`}
             onClick={
@@ -141,6 +160,22 @@ function Sidebar({
             <div className="sidebar-nav-text">
               <span className="sidebar-nav-title">My Board</span>
               <span className="sidebar-nav-sub">View all columns</span>
+            </div>
+          </button>
+
+          {/* FIX: Focus Mode — now uses "focus" for active check + unique icon */}
+          <button
+            className={`sidebar-nav-item${activePage === "focus" ? " active" : ""}`}
+            onClick={
+              activePage !== "focus" ? () => navigate("/focus-mode") : undefined
+            }
+          >
+            <div className="sidebar-nav-icon">
+              <IconFocus />
+            </div>
+            <div className="sidebar-nav-text">
+              <span className="sidebar-nav-title">Focus Mode</span>
+              <span className="sidebar-nav-sub">Deep work session</span>
             </div>
           </button>
 
@@ -187,7 +222,6 @@ function Sidebar({
       {/* ── Footer ── */}
       <div className="sidebar-footer">
         {showProgress ? (
-          /* Dashboard footer */
           <div>
             <div className="sidebar-progress-label">
               <span>Completion</span>
@@ -201,6 +235,18 @@ function Sidebar({
                 style={{ width: `${completionPct}%` }}
               />
             </div>
+          </div>
+        ) : activePage === "focus" ? (
+          /* Focus Mode footer */
+          <div>
+            <div className="sidebar-total-label">Deep Work</div>
+            <div
+              className="sidebar-total-count"
+              style={{ fontSize: "16px", letterSpacing: "-0.02em" }}
+            >
+              Stay focused
+            </div>
+            <div className="sidebar-total-sub">minimise distractions</div>
           </div>
         ) : (
           /* Board footer */

@@ -8,6 +8,7 @@ import TaskForm from "./components/TaskForm";
 import AuthRoute from "./components/AuthRoute";
 import LandingPage from "./components/LandingPage";
 import NotFound from "./components/NotFound";
+import FocusMode from "./components/FocusMode";
 
 function App() {
   return (
@@ -52,6 +53,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <TaskForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/focus-mode"
+            element={
+              <ProtectedRoute>
+                <FocusMode />
               </ProtectedRoute>
             }
           />

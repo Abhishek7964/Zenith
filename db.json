@@ -26,6 +26,15 @@
       "taskPriority": "medium",
       "taskDeadline": "26-02-2026",
       "createdAt": "2026-02-24T13:17:28.592Z"
+    },
+    {
+      "id": "a07b",
+      "createdBy": "palabhab",
+      "taskName": "Github setup",
+      "taskStage": 0,
+      "taskPriority": "high",
+      "taskDeadline": "27-02-2026",
+      "createdAt": "2026-02-24T18:53:22.629Z"
     }
   ]
 }
